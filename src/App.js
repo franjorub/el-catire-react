@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home/Home";
 import HotDogList from "./components/Hotdogs/HotDogList";
 import CreateHotDog from "./components/Hotdogs/CreateHotDog";
+import UpdateHotDog from "./components/Hotdogs/UpdateHotDog";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -29,15 +30,6 @@ function App() {
             <Link className="nav-item nav-link active" to="/hotdog">
               Hotdogs <span className="sr-only">(current)</span>
             </Link>
-            <Link className="nav-item nav-link" to="#">
-              Features
-            </Link>
-            <Link className="nav-item nav-link" to="#">
-              Pricing
-            </Link>
-            <Link className="nav-item nav-link disabled" to="#">
-              Disabled
-            </Link>
           </div>
         </div>
       </nav>
@@ -45,6 +37,8 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/hotdog" exact component={HotDogList} />
         <Route path="/hotdog/create" component={CreateHotDog} />
+        <Route path="/hotdog/edit/:id" component={UpdateHotDog} />
+        <Route path="/ventas" component={UpdateHotDog} />
       </div>
     </Router>
   );

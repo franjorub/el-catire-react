@@ -42,7 +42,8 @@ export default class CreateHotDog extends Component {
       console.log(data);
       this.setState({
         name: "",
-        description: ""
+        description: "",
+        price: 0
       });
     } catch (err) {
       console.log(err);

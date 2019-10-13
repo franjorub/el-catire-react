@@ -37,6 +37,7 @@ export default class HotDogList extends Component {
               <th scope="col">Name</th>
               <th scope="col">Description</th>
               <th scope="col">Price</th>
+              <th scope="col">Edit</th>
             </tr>
           </thead>
           <tbody>
@@ -48,6 +49,9 @@ export default class HotDogList extends Component {
                   {hotdog.description || "Empty description"}
                 </th>
                 <th>{hotdog.price}</th>
+                <th>
+                  <Link to={`/hotdog/edit/${hotdog._id}`}>Update</Link>
+                </th>
               </tr>
             ))}
           </tbody>
