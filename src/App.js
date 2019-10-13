@@ -7,6 +7,7 @@ import UpdateHotDog from "./components/Hotdogs/UpdateHotDog";
 import SalesLists from "./components/Sales/SalesList";
 import CreateSale from "./components/Sales/CreateSale";
 import SaleDetails from "./components/Sales/SaleDetails";
+import SalesReport from "./components/Reports/SalesReport";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -36,6 +37,9 @@ function App() {
             <Link className="nav-item nav-link active" to="/sales">
               Sales <span className="sr-only">(current)</span>
             </Link>
+            <Link className="nav-item nav-link active" to="/reports">
+              Reports <span className="sr-only">(current)</span>
+            </Link>
           </div>
         </div>
       </nav>
@@ -47,6 +51,7 @@ function App() {
         <Route path="/sales" exact component={SalesLists} />
         <Route path="/sales/create" component={CreateSale} />
         <Route path="/sales/details/:id" component={SaleDetails} />
+        <Route path="/reports" exact component={SalesReport} />
       </div>
     </Router>
   );
