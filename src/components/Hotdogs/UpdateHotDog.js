@@ -8,7 +8,8 @@ class UpdateHotDog extends Component {
       name: "",
       description: "",
       price: 0
-    }
+    },
+    updateSuccess: false
   };
   async componentDidMount() {
     const {
@@ -65,16 +66,33 @@ class UpdateHotDog extends Component {
         `http://localhost:4000/hotdog/update/${hotdog._id}`,
         hotdog
       );
-      this.props.history.push("/hotdog");
+      this.setState(
+        {
+          updateSuccess: true
+        },
+        () => {
+          setTimeout(() => {
+            this.setState({
+              updateSuccess: false
+            });
+            this.props.history.push("/hotdog");
+          }, 3000);
+        }
+      );
     } catch (err) {
       console.log(err);
     }
   };
 
   render() {
-    const { hotdog } = this.state;
+    const { hotdog, updateSuccess } = this.state;
     return (
       <div>
+        {updateSuccess && (
+          <div className="alert alert-success" role="alert">
+            Hotdog updated with success !
+          </div>
+        )}
         <h3>Update a new Hotdog!!</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -111,7 +129,7 @@ class UpdateHotDog extends Component {
           <div className="form-group">
             <input
               type="submit"
-              value="Create Hotdog"
+              value="Update Hotdog"
               className="btn btn-primary"
             />
           </div>

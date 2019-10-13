@@ -25,18 +25,22 @@ export default class SaleDetails extends Component {
     const { sale } = this.state;
     return (
       <div>
-        <h2>Details</h2>
-        <p className="h3">Date:</p>
-        <p>{sale.date}</p>
-        <p className="h3">Orders</p>
-        {sale.order &&
-          sale.order.map(order => (
-            <>
-              <p>{order.item.name}</p>
-              <p>{order.item.description}</p>
-              <p>{order.quantity}</p>
-            </>
-          ))}
+        <h2>Sale Details</h2>
+        <ul>
+          <li>Date: {sale.date}</li>
+          <li>Orders: </li>
+          {sale.order &&
+            sale.order.map(order => (
+              <div key={order.item._id}>
+                <hr />
+                <p>Name: {order.item.name}</p>
+                <p>Description: {order.item.description}</p>
+                <p>Quantity: {order.quantity}</p>
+                <hr />
+              </div>
+            ))}
+          <li>Total Price: {sale.totalPrice}</li>
+        </ul>
       </div>
     );
   }
